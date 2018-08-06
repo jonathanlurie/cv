@@ -1,0 +1,177 @@
+body {
+  -webkit-print-color-adjust: exact !important;
+  font-family: 'Lato', sans-serif;
+  color: #000;
+  margin: 0;
+}
+
+
+
+@media print {
+  body {
+
+
+  }
+
+  /* Specification for the Digital Tabloid of Newspaper Club*/
+  @page {
+    size:210mm 297mm;
+    margin-top: 15mm;
+    margin-bottom: 15mm;
+
+    @footnote {
+      border-top: 0.6pt solid black;
+      padding-top: 8pt;
+    }
+
+  }
+
+  /* First page, 10 cm margin on top */
+  @page :first {
+    /*margin-top: 10cm*/
+  }
+
+  .fn {
+    float: footnote;
+
+  }
+
+  /* the css print rule usualy says the right margin is larger on the left page
+     (and vice versa) because of the stitch gap, but Digital Tabloid allows
+     "poster print" with no gap in the middle, so we dont what to force if by default.
+
+  @page :left {
+    margin-left: 3cm;
+    margin-right: 2cm;
+  }
+
+  @page :right {
+    margin-left: 2cm;
+    margin-right: 3cm;
+  }
+  */
+
+
+  p {
+    font-family: 'Lato', sans-serif;
+    orphans:3; /* no single line at the bottom */
+    widows:3;
+  }
+
+  h1 {
+    page-break-before: always; /* everyt title starts on a new page*/
+  }
+
+  h1, h2, h3, caption {
+    font-family: 'Lato', sans-serif;
+    page-break-after: avoid; /* no page break after these */
+  }
+
+  .title {
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    font-size: 2.5em;
+  }
+
+  .subtitle {
+    margin: 1mm;
+    font-weight: 500;
+    font-size: 1.5em;
+  }
+
+  .blueText {
+    color: #5687DC
+  }
+
+  .thin {
+    font-weight: 300;
+  }
+
+  .thick {
+    font-weight: 700;
+  }
+
+  .link {
+    color: #5687DC;
+    text-decoration: underline;
+  }
+
+  .multicol3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    column-count: 3;
+    column-gap: 1cm;
+  }
+
+  .centerOnAllWidth {
+    width: 100%;
+    text-align: center;
+  }
+
+  .justified {
+    text-align: justify;
+  }
+
+  .width100pc {
+    width: 100%;
+  }
+
+  .pagebreak {
+    width: 0;
+    height: 0;
+    page-break-after: avoid;
+    page-break-before: always;
+  }
+
+  .section {
+    margin-top: 5mm;
+  }
+
+  .sectionHeader {
+    background-color: #b0c9f6;
+    padding: 1mm 0mm 1mm 1mm;
+    text-transform: uppercase;
+    color: #FFF;
+  }
+
+  .cell {
+    width: 100%;
+    display: flex;
+    margin: 1mm 0mm 5mm 0mm;
+  }
+
+  .left {
+    width: 23%;
+    font-style: italic;
+    font-weight: 300;
+    padding-left: 1mm;
+  }
+
+  .right {
+    width: 77%;
+  }
+
+  .company {
+    font-weight: 700;
+  }
+
+  .role {
+    font-weight: 300;
+  }
+
+  .tags {
+    display: flex;
+    margin-top: 1mm;
+  }
+
+  .tag {
+    color: #FFF;
+    padding: 0.5mm;
+    background-color: #80a6e8;
+    margin-right: 2mm;
+  }
+
+
+
+}
